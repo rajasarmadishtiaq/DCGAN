@@ -206,6 +206,8 @@ def train(epochs, save_interval):
   x_train = next(train_generator)
 
   for epoch in range(epochs):
+    
+    #x_train = next(train_generator) experinment by uncommenting this and commenting the above x_train.
 
     generator_loss_list = []
     discriminator_loss_list = []
