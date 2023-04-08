@@ -202,6 +202,8 @@ def train_step(images):
   return gen_loss, disc_loss
 
 def train(epochs, save_interval):
+  
+  noise = np.random.normal(0, 1, (rows, cols, latent_dim))
 
   x_train = next(train_generator)
 
@@ -226,7 +228,7 @@ def train(epochs, save_interval):
     print("******* %d [D loss: %f] [G loss: %f]" % (epoch, disc_loss, gen_loss))
     
     if(epoch % save_interval == 0):
-      save_imgs(epoch)
+      save_imgs(epoch, noise)
 
 train(30000, 10)
 
