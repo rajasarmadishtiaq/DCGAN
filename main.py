@@ -53,7 +53,7 @@ plt.imshow(x_train[4])
 def save_imgs(count, noise):
   image_array = np.full(( 
       margin + (rows * ((img_width) + margin)), 
-      margin + (rows * ((img_width) +margin)), channels), 
+      margin + (cols * ((img_width) +margin)), channels), 
       255, dtype=np.uint8)
   
   generated_images = generator.predict(noise)
@@ -203,7 +203,7 @@ def train_step(images):
 
 def train(epochs, save_interval):
   
-  noise = np.random.normal(0, 1, (rows, cols, latent_dim))
+  noise = np.random.normal(0, 1, (rows * cols , latent_dim))
 
   x_train = next(train_generator)
 
